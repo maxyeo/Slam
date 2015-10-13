@@ -1250,6 +1250,37 @@ header i.fa {
         font-size: 14px;
     }
 }
+
+/*  Special Showcase Event */
+#event-showcase {
+  text-align: center;
+}
+#event-showcase #header {
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 37%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#event-showcase .sexy-line {
+  height: 1px;
+  width: 200px;
+  background-color: #555;
+  margin: 3em auto;
+  display: block;
+}
+#event-showcase p {
+  font-family: "Oxygen", sans-serif;
+}
+#event-showcase h4 {
+  margin-bottom: 0;
+}
+#event-showcase .tix {
+  margin-top: 0;
+}
+/*  End Special Showcase Event */
+
 /* End Events Page */
 
 /* Media Page */
