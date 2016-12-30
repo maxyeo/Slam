@@ -1,13 +1,6 @@
 <?php get_header();?>
 <div id="splash" class="top">
-	<?php if ( wp_is_mobile() ) { ?>
-		<div id="splash-bg" style="background-image: url(<?php the_field('splash_bg'); ?>);"></div>
-	<?php } else {?>
-		<video id="slam-video" preload="auto" autoplay="autoplay" loop="loop" muted="muted" volume="0" poster="<?php the_field('splash_bg'); ?>">
-			<source src="<?php echo get_stylesheet_directory_uri(); ?>/img/vid/tasa.mp4" type="video/mp4">
-			<source src="" type="video/webm">
-		</video>
-	<?php }?>
+	<div id="splash-bg" style="background-image: url(<?php the_field('splash_bg'); ?>);"></div>
 	<div id="filter"></div>
 	<div id="splash-logo" style="background-image: url(<?php the_field('splash_logo'); ?>);"></div>
 	<?php if ( wp_is_mobile() ) { ?>

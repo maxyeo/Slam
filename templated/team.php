@@ -38,5 +38,20 @@ Template Name: Team Template
 		<?php endforeach; ?>
 		<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 	<?php endif; ?>
+	<h2><?php the_field('start_up_title'); ?></h2>
+	<?php 
+	$posts = get_field('start_up_members');
+	if( $posts ): ?>
+		<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+			<?php setup_postdata($post); ?>
+			<div class="mate" style="background-image: url(<?php the_field('name'); ?>);">
+				<div>
+					<h3><?php the_title(); ?></h3>
+					<h4><?php the_field('position'); ?></h4>
+				</div>
+			</div>
+		<?php endforeach; ?>
+		<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+	<?php endif; ?>
 </div>
 <? get_footer(); ?>
