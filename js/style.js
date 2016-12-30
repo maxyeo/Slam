@@ -45,7 +45,6 @@ $(window).scroll(function() {
 	// } else if (pos > tea) {
 	// 	$("#ent-menu").removeClass().addClass("bot");
 	// }
-	console.log();
 });
 
 //SMOOTH SCROLLING
@@ -68,50 +67,40 @@ $("header i.fa").click(function(){
 	$("header").toggleClass("mobile");
 });
 
-(function(window, document, undefined) {
+// YOUTUBE STUFF 7AI9sgPN3kA
 
-  $(function() {
+$('.play-video').click(function() {
+	$('#splash').addClass('playing');
+	player.seekTo(4);
+	player.unMute();
+});
+$('.mute-video').click(function() {
+	$('#splash').removeClass('playing');
+	player.mute();
+});
 
-    var $connectVideo = $('#slam-video');
+var player;
+function onYouTubePlayerAPIReady() {
+	player = new YT.Player('ytplayer', {
+		videoId: '7AI9sgPN3kA',
+		playerVars: { 'showinfo': 0, 'controls': 0 },
+		events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+		}
+	});
+}
 
-    var lastTimestamp = -1, endingSoon = false;
+function onPlayerReady(event) {
+	event.target.playVideo();
+	player.mute();
+}
 
-    function listenForEnd() {
-
-        if(!endingSoon && $connectVideo[0].currentTime >= 304) {
-
-          endingSoon = true;
-
-          $('#splash').removeClass('playing');
-        }
-
-        if($connectVideo[0].currentTime < lastTimestamp) {
-
-          $connectVideo[0].muted = true;
-          $connectVideo.unbind('timeupdate', listenForEnd);
-          lastTimestamp = -1;
-          endingSoon = false;
-          return;
-        }
-
-        lastTimestamp = $connectVideo[0].currentTime;
-    }
-
-    $('.play-video').click(function() {
-
-      $connectVideo[0].currentTime = 0;
-      $connectVideo[0].muted = false;
-      $('#splash').addClass('playing');
-
-      $connectVideo.bind('timeupdate', listenForEnd);
-    });
-
-    $('.mute-video').click(function() {
-
-      $connectVideo[0].muted = true;
-      $('#splash').removeClass('playing');
-
-    });
-  });
-
-})(window, window.document);
+var done = false;
+function onPlayerStateChange(event) {
+	if (event.data == YT.PlayerState.ENDED) {
+		$('#splash').removeClass('playing');
+		player.seekTo(0);
+		player.mute();
+	}
+}

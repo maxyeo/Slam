@@ -1,6 +1,7 @@
 <?php get_header();?>
 <div id="splash" class="top">
 	<div id="splash-bg" style="background-image: url(<?php the_field('splash_bg'); ?>);"></div>
+	<div id="ytplayer"></div>
 	<div id="filter"></div>
 	<div id="splash-logo" style="background-image: url(<?php the_field('splash_logo'); ?>);"></div>
 	<?php if ( wp_is_mobile() ) { ?>

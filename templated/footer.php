@@ -10,6 +10,7 @@ Template Name: Footer Template
 			<a href="mailto:slam.jhu@gmail.com" class="mail">slam.jhu@gmail.com</a>
 			<h6>COPYRIGHT &copy; 2015 SLAM HIP HOP DANCE GROUP.</h6>
 		</footer>
+		<script type='text/javascript' src='https://www.youtube.com/player_api'></script>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
